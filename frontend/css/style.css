@@ -1,0 +1,87 @@
+@font-face {
+  font-family: Luna;
+  src: url("webfonts/Luna.ttf") format("truetype");
+}
+
+/************/
+
+body{
+  font-family: Roboto, Helvetica, sans-serif;
+}
+
+/************/
+
+.text-center{
+  text-align: center;
+}
+
+/************/
+
+header#header{
+
+}
+
+header#header .subheading{
+  font-weight: bold;
+}
+
+header#header h1{
+  font-family: Luna, fancy;
+}
+
+/************/
+
+#data-wrap{
+  text-align: center;
+}
+
+#data{
+  margin: 0 auto;
+}
+
+.data-item{
+  width: calc(20vw - 24px);
+  height: auto;
+  margin-bottom: 8px;
+}
+
+.data-sizer{
+  margin: 0;
+}
+
+@media only screen and (max-width: 920px){
+  .data-item{
+    width: calc(25vw - 24px);
+  }
+}
+
+@media only screen and (max-width: 769px){
+  .data-item{
+    width: calc(33vw - 24px);
+  }
+}
+
+/*@media only screen and (max-width: 415px){
+  .data-item{
+    width: calc(33vw - 24px);
+  }
+}*/
+
+@media only screen and (max-width: 420px){
+  .data-item{
+    width: calc(50vw - 24px);
+  }
+}
+
+/************/
+
+#infinity-status{
+  margin: 32px 16px;
+  font-size: 5rem;
+  opacity: .5;
+  color: gray;
+}
+
+#infinity-status > *:not(.infinite-scroll-request){
+  display: none;
+}

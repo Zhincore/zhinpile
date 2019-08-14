@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="height=device-height, initial-scale=1.0">
+  <link rel="stylesheet" href="css/zhincore.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>A pile of {{ title }}</title>
+</head>
+<body>
+  <header id="header" class="row">
+    <div class="col text-center">
+      <p class="subheading">A pile of</p>
+      <h1>{{ title }}</h1>
+    </div>
+  </header>
+
+  <main id="data-wrap">
+    <div id="data">
+      <div class="data-sizer data-item"></div>
+      {% spaceless %}
+      {% for item in data %}
+        {% if item.type == "video" %}
+          <video class="item data-item video" ondblclick="" src="{{path}}/{{item.file}}" autoplay="on" muted="on" controls="on" loop="on">
+        {% elseif item.type == "image" %}
+          <img class="item data-item image" onclick="" src="{{path}}/{{item.file}}">
+        {% endif %}
+      {% endfor %}
+      {% endspaceless %}
+    </div>
+  </main>
+
+  <div class="row">
+    <div id="infinity-status" class="col text-center">
+      <div class="infinite-scroll-request" style="{% if page == pages %}display: none;{% endif %}"><i class="fas fa-spinner fa-lg fa-pulse" style="opacity: 1"></i></div>
+      <div class="infinite-scroll-last">End of content</div>
+      <div class="infinite-scroll-error">Failed to load next page</div>
+    </div>
+  </div>
+
+  <div id="pager" class="row">
+    {% if page > 0 %}
+      <a href="{{ page - 1 }}" id="pager-prev">Previous</a>
+    {% endif %}
+    &nbsp;
+    {% if page < pages %}
+      <a href="{{ page + 1 }}" id="pager-next">Thank you, Next</a>
+    {% endif %}
+  </div>
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/imagesloaded.pkgd.min.js"></script>
+  <script src="js/masonry.pkgd.min.js"></script>
+  <script src="js/infinite-scroll.pkgd.min.js"></script>
+  <script>
+    $(document).ready(()=>{
+      var $grid = $('#data').masonry({
+        itemSelector: ".item",
+        columnWidth: ".data-sizer",
+        gutter: 16,
+        percentPosition: true,
+        fitWidth: true
+      });
+      var msnry = $grid.data('masonry');
+
+      $grid.imagesLoaded().progress(()=>{
+        $grid.masonry('layout');
+      });
+
+      $grid.one("layoutComplete", ()=>{
+        $grid.infiniteScroll({
+          // options
+          path: '#pager-next',
+          append: '.item',
+          history: false,
+          prefill: true,
+          outlayer: msnry,
+          hideNav: "#pager",
+          scrollThreshold: 500,
+          status: "#infinity-status"
+        });
+
+        $grid.on("append.infiniteScroll", ()=>{
+          // Fix video not auto-playing
+          $(".video").each((i, el)=>{
+            el.load();
+          }).one("loadeddata", (ev)=>{
+            $grid.masonry('layout');
+            ev.currentTarget.play()
+          });
+        });
+      });
+
+    });
+  </script>
+</body>
+</html>
