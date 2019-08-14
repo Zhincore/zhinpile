@@ -5,13 +5,13 @@
   <meta name="viewport" content="height=device-height, initial-scale=1.0">
   <link rel="stylesheet" href="css/zhincore.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <title>A pile of {{ title }}</title>
+  <title>AriPile | Zhincore's Personal</title>
 </head>
 <body>
   <header id="header" class="row">
     <div class="col text-center">
       <p class="subheading">A pile of</p>
-      <h1>{{ title }}</h1>
+      <h1>Ariana Grande</h1>
     </div>
   </header>
 
@@ -20,11 +20,13 @@
       <div class="data-sizer data-item"></div>
       {% spaceless %}
       {% for item in data %}
-        {% if item.type == "video" %}
-          <video class="item data-item video" ondblclick="" src="{{path}}/{{item.file}}" autoplay="on" muted="on" controls="on" loop="on"></video>
-        {% elseif item.type == "image" %}
-          <img class="item data-item image" onclick="" src="{{path}}/{{item.file}}">
-        {% endif %}
+        <div class="item data-item {{item.type}}" onclick="lightbox(this)">
+          {% if item.type == "video" %}
+            <video class="data-item-content" src="{{path}}/{{item.file}}" autoplay="on" muted="on" loop="on"></video>
+          {% elseif item.type == "image" %}
+            <img class="data-item-content" src="{{path}}/{{item.file}}">
+          {% endif %}
+        </div>
       {% endfor %}
       {% endspaceless %}
     </div>
@@ -48,10 +50,14 @@
     {% endif %}
   </div>
 
+  <div id="lightbox-overlay"></div>
+  <i id="lightbox-overlay-cross" class="fas fa-times" onclick="$('#lightbox-overlay').click()"></i>
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/imagesloaded.pkgd.min.js"></script>
   <script src="js/masonry.pkgd.min.js"></script>
   <script src="js/infinite-scroll.pkgd.min.js"></script>
+  <script src="js/lightbox.js"></script>
   <script>
     $(document).ready(()=>{
       var $grid = $('#data').masonry({

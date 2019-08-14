@@ -41,13 +41,67 @@ header#header h1{
 
 .data-item{
   width: calc(20vw - 24px);
-  height: auto;
   margin-bottom: 8px;
+  cursor: pointer;
+}
+
+
+.data-item::before{
+  content: "\f065";
+  text-align: right;
+  padding: 8px;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 32px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, .5);
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity .5s;
+  pointer-events: none;
+}
+
+.data-item:hover::before{
+  opacity: .5;
+}
+.data-item:focus::before{
+  visibility: hidden;
+}
+
+.data-item-content{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+.data-item-content.lightboxed{
+  position: fixed;
+  z-index: 999;
+  height: inherit;
+  transform: translate(0, 0);
+  transition: top .5s, left .5s, width .5s, height .5s, transform .5s;;
+}
+
+.data-item-content.lightboxed.active{
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+  /*width: 100% !important;
+  height: 100% !important;*/
 }
 
 .data-sizer{
   margin: 0;
 }
+
 
 @media only screen and (max-width: 920px){
   .data-item{
@@ -84,4 +138,44 @@ header#header h1{
 
 #infinity-status > *:not(.infinite-scroll-request){
   display: none;
+}
+
+/************/
+
+#lightbox-overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+  z-index: 998;
+  opacity: 0;
+  display: none;
+  transition: opacity 1s;
+}
+
+#lightbox-overlay.active{
+  opacity: 1;
+  display: block;
+}
+
+#lightbox-overlay-cross{
+  position: fixed;
+  display: block;
+  top: 24px;
+  right: 32px;
+  font-size: 48px;
+  z-index: 200010;
+  color: white;
+  cursor: pointer;
+  text-shadow: 0 0 6px black;
+  opacity: 0;
+  display: none;
+  transition: opacity 1s;
+}
+
+#lightbox-overlay-cross.active{
+  opacity: .5;
+  display: block;
 }
