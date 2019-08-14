@@ -1,5 +1,5 @@
 # zhinpile
-NodeJS HTTP server for serving a pile/sh*tton/f*ckload of images and videos.
+NodeJS HTTP server for serving a pile/sh\*tton/f\*ckload of images and videos.
 
 ---
 
