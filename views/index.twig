@@ -21,7 +21,7 @@
       {% spaceless %}
       {% for item in data %}
         {% if item.type == "video" %}
-          <video class="item data-item video" ondblclick="" src="{{path}}/{{item.file}}" autoplay="on" muted="on" controls="on" loop="on">
+          <video class="item data-item video" ondblclick="" src="{{path}}/{{item.file}}" autoplay="on" muted="on" controls="on" loop="on"></video>
         {% elseif item.type == "image" %}
           <img class="item data-item image" onclick="" src="{{path}}/{{item.file}}">
         {% endif %}
