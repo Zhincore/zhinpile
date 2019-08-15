@@ -45,7 +45,7 @@ app.all("/([a-zA-Z0-9]+)/([0-9])?", (req, res)=>{
     data.push({
       type: fileType(file.split('.').pop()),
       file: file,
-      time: stats.ctimeMs
+      time: stats.mtimeMs
     })
   });
 
