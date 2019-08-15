@@ -12,6 +12,15 @@
     <div class="col text-center">
       <p class="subheading">A pile of</p>
       <h1>Ariana Grande</h1>
+      {% if tags %}
+        <p class="paragraph tags"><strong>Tags:</strong>
+          {% for tag in tags %}
+            <span>{{ tag }}</span> 
+          {% endfor %}
+        </p>
+      {% endif %}
+      <p class="paragraph">{{ description }}</p>
+      <p class="paragraph">Currenty <i>{{ num }}</i> of images and videos.</p>
     </div>
   </header>
 

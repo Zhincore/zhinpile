@@ -6,6 +6,10 @@ const PAGE_SIZE = 16;     // How many photos per page?
 const TITLE = "Foxes";    // A pile of what?
 const PORT = 8131;  
 const HOST = "127.0.0.1";
+const DESC = "Cute foxes I have found on the internet!" // Description of the pile
+const TAGS = [ // Tags to be cool at Google Search
+  "fox", "foxes", "cute", "ginger", "white", "adorable", "nature"
+]
 
 
 /*************/
@@ -52,7 +56,7 @@ app.all("/([a-zA-Z0-9]+)/([0-9])?", (req, res)=>{
   data.sort(timeSort);
   data = data.slice(PAGE_SIZE*page, PAGE_SIZE*(page+1));
 
-  res.render("index.twig", {data: data, path: PATH, page: page, pages: pages, title: TITLE});
+  res.render("index.twig", {data: data, path: PATH, page: page, pages: pages, title: TITLE, num: dir.length, description: DESC, tags: TAGS});
 });
 
 app.all("/*", (req,res)=>{

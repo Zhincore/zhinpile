@@ -15,6 +15,21 @@ body{
   text-align: center;
 }
 
+.paragraph{
+  max-width: 750px;
+  margin: 0 auto 16px;
+}
+
+.tags{
+  color: #818181;
+
+  font-size: small;
+}
+
+.tags span{
+  margin: 0 1ex;
+}
+
 /************/
 
 header#header{
