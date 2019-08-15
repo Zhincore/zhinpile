@@ -4,12 +4,13 @@ NodeJS HTTP server for serving a pile/sh\*tton/f\*ckload of images and videos.
 ---
 
 ## Features
-+ Simple and easy to modify (you can learn from this project or build on it!)
++ Supports both images and videos
++ Auto-plays videos
++ Simple and free ([free as in freedom](https://en.wikipedia.org/wiki/Free_as_in_Freedom)) (you can learn from this project or build on it!)
 + Dynamic loading of items (no need to restart after adding photos)
 + Lazy loading using [Infinite scroll](https://infinite-scroll.com/)
 + Beautiful layout using [Masonry](https://masonry.desandro.com/)
-+ Supports both images and videos
-+ More coming soon...
++ Lightbox built-in (Make images and videos fullscreen by clicking them!) (Also look at these cute animations)
 
 ---
 
