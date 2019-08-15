@@ -5,13 +5,13 @@
   <meta name="viewport" content="height=device-height, initial-scale=1.0">
   <link rel="stylesheet" href="css/zhincore.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <title>AriPile | Zhincore's Personal</title>
+  <title>A pile of {{ title }}</title>
 </head>
 <body>
   <header id="header" class="row">
     <div class="col text-center">
       <p class="subheading">A pile of</p>
-      <h1>Ariana Grande</h1>
+      <h1>{{ title }}</h1>
       {% if tags %}
         <p class="paragraph tags"><strong>Tags:</strong>
           {% for tag in tags %}
