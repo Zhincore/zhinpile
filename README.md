@@ -31,9 +31,9 @@ Also remove all example photos in `frontend/data/`
 
 ---
 
-### Confguration
+## Confguration
 All options are on the top of the `index.js` file.
-#### Sample configuration
+### Sample configuration
 ```
 /****************/
 /**** CONFIG ****/
@@ -43,13 +43,20 @@ const PAGE_SIZE = 16;     // How many photos per page?
 const TITLE = "Foxes";    // A pile of what?
 const PORT = 8131;  
 const HOST = "127.0.0.1"; // Localhost
+const DESC = "Cute foxes I have found on the internet!" // Description of the pile
+const TAGS = [ // Tags to be cool at Google Search
+  "fox", "foxes", "cute", "ginger", "white", "adorable", "nature"
+]
 ```
 
-### Usage
+## Usage
 Put all your photos and videos in the `frontend/data` directory and run node using 
 ```
 node .
 ```
 You can now view the photos at `http://localhost:8131/<anything>`.  
 The `<anything>` is there because this repo is meant to be behind a proxy like Nginx.  
-E. g. my setup is http://personal.zhincore.eu/ari
+E. g. my setup is https://personal.zhincore.eu/ari
+
+## Screenshot
+![Screenshot](https://media.zhincore.eu/github_zhincore_zhinpile_screenshot0.png)
