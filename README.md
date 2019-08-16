@@ -27,9 +27,7 @@ cd zhinpile
 npm i
 ```
 ### Done
-Also remove all example photos in `frontend/data/`
-
----
+You may also remove all example photos in `frontend/data/` and replace it with yours.
 
 ## Confguration
 All options are on the top of the `index.js` file.
@@ -50,7 +48,7 @@ const TAGS = [ // Tags to be cool at Google Search
 ```
 
 ## Usage
-Put all your photos and videos in the `frontend/data` directory and run node using 
+Put all your photos and videos in the `frontend/data/` directory and run node in the root folder (e.g. `zhinpile`) like this: 
 ```
 node .
 ```
