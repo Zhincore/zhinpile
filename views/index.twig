@@ -97,7 +97,7 @@
 
         $grid.on("append.infiniteScroll", ()=>{
           // Fix video not auto-playing
-          $(".video").each((i, el)=>{
+          $(".video video").each((i, el)=>{
             el.load();
           }).one("loadeddata", (ev)=>{
             $grid.masonry('layout');
